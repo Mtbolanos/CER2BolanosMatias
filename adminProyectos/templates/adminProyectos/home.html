@@ -1,0 +1,19 @@
+{% extends 'adminProyectos/base.html' %}
+{% load static %}
+
+{% block title %}{{title}}{% endblock %}
+{% comment %} {% block h2 %}{{title}}{% endblock %} {% endcomment %}
+
+{% block content %}
+
+<div id="imagenGrande">
+    <div class="centered">
+        <h1>Portal de Iniciativas Estudiantiles</h1>
+        <p>Universidad Santa María - Sede Viña del Mar</p>
+        <br><br><br><br>
+        <a href="{% url 'proyectos' %}" class="btn btn-primary" id="verIniciativas">Ver Iniciativas</a>
+    </div>
+    <img src="{% static 'adminProyectos/src/svm.jpg' %}" id="svm">
+</div>
+
+{% endblock %}

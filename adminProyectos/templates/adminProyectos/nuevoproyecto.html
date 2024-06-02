@@ -1,0 +1,35 @@
+{% extends 'adminProyectos/base.html' %}
+{% block title %}Crear Nuevo Proyecto{% endblock %}
+{% block content %}
+<br>
+<div class="container-fluid">
+    <h2 class="custom-h2">Crear Nuevo Proyecto</h2>
+    <form method="post">
+        {% csrf_token %}
+
+        <input type="hidden" name="estudiante" value="{{ request.user.get_full_name }}">
+
+        <div class="mb-3">
+            <label for="nombre_proyecto" class="form-label">Nombre del Proyecto:</label>
+            <input type="text" class="form-control" id="nombre_proyecto" name="nombre_proyecto">
+        </div>
+
+        <div class="mb-3">
+            <label for="tema" class="form-label">Tema:</label>
+            <input type="text" class="form-control" id="tema" name="tema">
+        </div>
+        <div class="mb-3">
+            <label for="profesor" class="form-label">Nombre del Profesor:</label>
+            <select class="form-select" id="profesor" name="profesor">
+                <option value="">Seleccione un profesor</option>
+                {% for user in profesores %}
+                    <option value="{{ user.get_full_name }}">{{ user.get_full_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="botonCrearProyecto">Crear Proyecto</button>
+    </form>
+</div>
+
+{% endblock %}

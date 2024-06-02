@@ -1,0 +1,47 @@
+{% extends 'adminProyectos/base.html' %}
+
+{% block title %}Proyectos{% endblock %}
+
+{% block content %}
+<br>
+<div class="container-fluid">
+    <h3 id="portafolio">Portafolio</h3>
+    <h2 class="mb-4 custom-h2">Proyectos Presentados</h2>
+    <form class="mb-4 row gx-3 gy-2 align-items-center" method="get" action="{% url 'proyectos' %}">
+        <div class="col-md-6">
+            <select class="form-select" name="tema">
+                <option value="">Todos los temas</option>
+                {% for tema in temas %}
+                <option value="{{ tema }}" {% if tema == tema_seleccionado %}selected{% endif %}>{{ tema }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-primary" id="botonFiltrar">Filtrar</button>
+        </div>
+    </form>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre del Proyecto</th>
+                    <th scope="col">Estudiante</th>
+                    <th scope="col">Tema</th>
+                    <th scope="col">Profesor</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for proyecto in proyectos %}
+                <tr>
+                    <td>{{ proyecto.nombre_proyecto }}</td>
+                    <td>{{ proyecto.estudiante }}</td>
+                    <td>{{ proyecto.tema }}</td>
+                    <td>{{ proyecto.profesor }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

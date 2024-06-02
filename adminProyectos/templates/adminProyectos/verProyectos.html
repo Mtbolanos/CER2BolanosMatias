@@ -1,0 +1,60 @@
+{% extends 'adminProyectos/base.html' %}
+{% block title %}Administrar Proyectos{% endblock %}
+{% block content %}
+<br>
+<div class="container-fluid">
+    <h2 class="mb-4 custom-h2">Proyectos sin Profesor</h2>
+    <form class="mb-4" method="get" action="{% url 'proyectos' %}">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <select class="form-select" name="tema">
+                    <option value="">Todos los temas</option>
+                    {% for tema in temas %}
+                    <option value="{{ tema }}" {% if tema == tema_seleccionado %}selected{% endif %}>{{ tema }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-primary" id="botonFiltrar">Filtrar</button>
+            </div>
+        </div>
+    </form>
+    <form method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre Proyecto</th>
+                            <th scope="col">Estudiante</th>
+                            <th scope="col">Tema</th>
+                            <th scope="col">Seleccionar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for proyecto in proyectos_sin_profesor %}
+                        <tr>
+                            <td>{{ proyecto.nombre_proyecto }}</td>
+                            <td>{{ proyecto.estudiante }}</td>
+                            <td>{{ proyecto.tema }}</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="proyectos_seleccionados" value="{{ proyecto.id }}">
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-primary custom-btn">Asignar Profesor</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

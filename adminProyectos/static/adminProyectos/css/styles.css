@@ -1,0 +1,132 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#barraColores {
+    height: 7.5vh;
+    margin-right: 10px;
+}
+
+
+.custom-navbar {
+    background-color: #005e90;
+}
+
+
+.navbar-nav .nav-link,
+.navbar-brand {
+    color: #ffffff !important;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+#imagenGrande {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+#svm {
+    max-width: 100%;
+    width: 100vw;
+    height: 90vh;
+    object-fit: cover;
+}
+
+.centered {
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centered h1 {
+    font-size: 6em;
+    white-space: nowrap;
+}
+
+.centered p {
+    font-size: 3em;
+    white-space: nowrap;
+}
+
+#verIniciativas {
+    background-color: #e5b300;
+    border-color: #ffffff;
+}
+
+/* Proyectos */
+
+#portafolio {
+    color: #e5b300;
+    text-align: center;
+}
+
+.custom-h2 {
+    text-align: center;
+}
+
+#botonFiltrar {
+    background-color: #005e90;
+    border-color: #005e90;
+}
+
+#botonCrearProyecto {
+    background-color: #005e90;
+    border-color: #005e90;
+}
+
+#botonLogin {
+    background-color: #005e90;
+    border-color: #005e90;
+    margin: 0 auto;
+}
+
+
+.txtLogin {
+    color: #ffffff;
+    margin-left: 5vw;
+}
+
+.login {
+    max-height: 100%;
+    height: 100vh;
+    background-color: #005e90;
+}
+
+.form-container {
+    border-radius: 25px;
+    margin-top: 5vh;
+    background-color: #ffffff;
+    width: 30vw;
+    padding: 20px;
+    margin-left: 5vw;
+    text-align: center;
+}
+
+#versionHorizontal {
+    height: 20vh;
+}
+
+.footer {
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+}
+
+.footer-line {
+    width: 80%;
+    margin: 0 auto;
+    border-top: 1px solid #ccc;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
